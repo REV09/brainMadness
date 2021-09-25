@@ -1,32 +1,32 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
-// In dart the type float doesn't exist so we use var
+// In dart the type float doesn't so we use double
 
 class Player {
   String playerName;
-  var scoreObtained;
-  var timeElapsed;
+  double scoreObtained;
+  double timeElapsed;
 
   Player(
       {this.playerName = "", this.scoreObtained = 0.0, this.timeElapsed = 0.0});
 
-  set name(String playerName) {
+  void setName(String playerName) {
     this.playerName = playerName;
   }
 
-  set score(var scoreObtained) {
+  void setScore(var scoreObtained) {
     this.scoreObtained = scoreObtained;
   }
 
-  set time(var timeElapsed) {
+  void setTime(var timeElapsed) {
     this.timeElapsed = timeElapsed;
   }
 
-  String get name => playerName;
+  String getName() => playerName;
 
-  get score => scoreObtained;
+  double getScore() => scoreObtained;
 
-  get time => timeElapsed;
+  double getTime() => timeElapsed;
 
   @override
   String toString() => "$playerName \n$scoreObtained \n$timeElapsed";
