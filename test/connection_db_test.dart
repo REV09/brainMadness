@@ -1,4 +1,4 @@
-import 'package:game_math/classes/connection_db.dart';
+import 'package:game_math/classes/domain/connection_db.dart';
 import 'package:mysql1/mysql1.dart';
 import 'package:test/test.dart';
 
