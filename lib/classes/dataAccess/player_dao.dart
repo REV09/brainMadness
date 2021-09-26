@@ -19,6 +19,27 @@ class PlayerDAO implements IPlayerDAO {
           player.getTime()
         ]);
     int rowsAffected = result.affectedRows!;
+    dbConnection.close();
     return rowsAffected;
+  }
+
+  @override
+  Future<List<Player>> showScoreboard() async {
+    final dbConnection = await getConecction();
+    List<Player> players = List.empty(growable: true);
+    final results = await dbConnection.query("SELECT * FROM scoreboard");
+
+    for (var key in results) {
+      Player player = Player();
+      player.setName(key.fields["playerName"]);
+      player.setDifficult(key.fields["difficult"]);
+      player.setCorrectAnswers(key.fields["correctAnswers"]);
+      player.setIncorrectAnswers(key.fields["incorrectAnswers"]);
+      player.setTime(key.fields["timeElapsed"]);
+      players.add(player);
+    }
+
+    dbConnection.close();
+    return players;
   }
 }
