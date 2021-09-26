@@ -47,6 +47,9 @@ class Player {
   int getIncorrectAnswers() => incorrectAnswers;
 
   @override
-  String toString() =>
-      "$playerName \n$difficult \n$timeElapsed \n$correctAnswers \n$incorrectAnswers";
+  String toString() {
+    String playerToString = "$playerName \n$difficult \n$timeElapsed"
+        "\n$correctAnswers \n$incorrectAnswers";
+    return playerToString;
+  }
 }
